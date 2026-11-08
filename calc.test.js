@@ -1,0 +1,8 @@
+const assert = require('assert');
+const { add } = require('./calc');
+
+assert.strictEqual(add(1, 2), 3);
+assert.strictEqual(add(-1, 1), 0);
+assert.strictEqual(add(0, 0), 0);
+
+console.log('all tests passed');
