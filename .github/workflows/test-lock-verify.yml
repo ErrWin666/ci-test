@@ -1,0 +1,19 @@
+name: test-lock
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify-test-lock:
+    name: Verify test files are frozen
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check test file hashes
+        run: |
+          if ! sha256sum -c tests.lock; then
+            echo "::error::Test files were modified after freeze. Update tests.lock or revert the change."
+            exit 1
+          fi

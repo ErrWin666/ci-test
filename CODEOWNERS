@@ -1,0 +1,3 @@
+# Frozen test files — changes require owner approval
+*.test.js @ErrWin666
+tests.lock @ErrWin666
